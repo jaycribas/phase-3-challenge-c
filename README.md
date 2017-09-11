@@ -23,7 +23,7 @@ Each requirement has a point value. A fully complete requirement gets full point
 - [x] __10:__ Solution repository has 3 folders: `part-1`, `part-2`, and `part-3`.
 - [x] __10:__ Solution repository includes a `.gitignore` ignoring files that don't shouldn't be committed (e.g. `node_modules/`, `*.log` files).
 - [ ] __10:__ Parts 1 and 2 have their own `package.json` specifying dependencies.
-- [ ] __20:__ Git history shows frequent commits.
+- [x] __20:__ Git history shows frequent commits.
 
 ## Part 1: Simple web app
 
@@ -225,14 +225,14 @@ Clicking on the "Book" button for any room opens the "Booking" modal.
 
 ### Requirements
 
-- [ ] __10:__ All files are stored under the `part-3/` folder
-- [ ] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
-- [ ] __10:__ HTML, CSS, and JS are separated into their own files.
-- [ ] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info automatically inserted (room number and nightly rate)
-- [ ] __20:__ Users can select a check-in date (using an HTML5 date input) and a number of nights
-- [ ] __20:__ The "Total" in the "Booking" modal shows the total sum (formula: nightly rate multiplied by number of nights)
-- [ ] __20:__ Whenever the number of nights changes, the total is updated automatically
-- [ ] __20:__ Clicking on the "X" button in the "Booking" modal closes the modal
+- [x] __10:__ All files are stored under the `part-3/` folder
+- [x] __20:__ No third party CSS or JS libraries are used (all code must be written from scratch)
+- [x] __10:__ HTML, CSS, and JS are separated into their own files.
+- [x] __20:__ Clicking on the "Book" button for a room will open the "Booking" modal with the room info automatically inserted (room number and nightly rate)
+- [x] __20:__ Users can select a check-in date (using an HTML5 date input) and a number of nights
+- [x] __20:__ The "Total" in the "Booking" modal shows the total sum (formula: nightly rate multiplied by number of nights)
+- [x] __20:__ Whenever the number of nights changes, the total is updated automatically
+- [x] __20:__ Clicking on the "X" button in the "Booking" modal closes the modal
 
 [hotel-bookings]: https://gist.github.com/lg-bot/1ea5b9cb6dfab086bcb2db3d144e81d4#file-bookings-csv
 [hotel-guests]: https://gist.github.com/lg-bot/1ea5b9cb6dfab086bcb2db3d144e81d4#file-guests-csv
