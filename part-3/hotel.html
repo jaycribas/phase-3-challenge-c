@@ -72,19 +72,21 @@
         <span class='close float-right' id='close'>&times;</span>
         <h1 class='modal-header'>Booking</h1>
 
-        <h3>Room 3A
-          <span class='float-right'>$59.99 / night</span>
+        <h3>Room <span id='room-number'></span>
+          <span class='float-right'>
+            $<span id='modal-price'></span> / night
+          </span>
         </h3>
 
         <span class='float-right'><input type='date' /></span>
-        <h3>Check-In</h3>
+        <h3 class='modal-detail'>Check-In</h3>
 
         <span class='float-right'>
           <input id='nights' type='number' min='1' value='1'/>
         </span>
-        <h3>Nights</h3>
+        <h3 class='modal-detail'>Nights</h3>
 
-        <h3>Total $59.99
+        <h3 class='modal-total'>Total $<span id='booking-total'></span>
           <button class='float-right'>Confirm</button>
         </h3>
       </div>
