@@ -17,11 +17,22 @@ switch (command) {
     })
     break;
   case 'rooms':
-    db.listAllUpcomingBookings(function(error, rooms){
+    if(option){
+      db.listAllUpcomingBookingsByRoom(option, function(error, bookings){
+        if(error)
+          console.log(error)
+        else{
+          print(bookings.rows)
+          client.end()
+        }
+      })
+      break
+    }
+    db.listAllUpcomingBookings(function(error, bookings){
       if(error)
         console.log(error)
       else{
-        print(rooms.rows)
+        print(bookings.rows)
         client.end()
       }
     })
