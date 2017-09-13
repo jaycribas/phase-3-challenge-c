@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', function(event){
       document.getElementById('room-number').textContent = roomNumber
       document.getElementById('modal-price').textContent = roomPricePerNight
       document.getElementById('nights').addEventListener('click', updateTotal)
+      document.getElementById('nights').addEventListener('keyup', updateTotal)
 
       function updateTotal(){
         let numberOfNights = Number(document.getElementById('nights').value)
-        let bookingTotal = roomPricePerNight * numberOfNights
+        let bookingTotal = parseFloat(
+          roomPricePerNight * numberOfNights
+        ).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         document.getElementById('booking-total').textContent = bookingTotal
       }
 
