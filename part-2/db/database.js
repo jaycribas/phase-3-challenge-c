@@ -1,4 +1,4 @@
-const client = require('./db/client')
+const client = require('./client')
 
 function listGuests(callback){
   return client.query(`
