@@ -2,7 +2,11 @@ const client = require('./db/client')
 
 function listGuests(callback){
   return client.query(`
-    SELECT * FROM guests
+    SELECT
+      id AS "ID",
+      name AS "Guest Name",
+      email AS "Email"
+    FROM guests
   `, callback)
 }
 
