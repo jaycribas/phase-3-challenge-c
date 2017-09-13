@@ -61,5 +61,6 @@ switch (command) {
     })
     break;
   default:
-
+    console.log('Invalid command: Try using guests, rooms [room #], or bookings [--available]')
+    client.end()
 }
