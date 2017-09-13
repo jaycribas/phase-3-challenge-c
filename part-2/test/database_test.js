@@ -26,4 +26,15 @@ describe('database queries', () => {
       })
     })
   })
+
+  describe('listRoomsAndAvailability', () => {
+    it('should return all 18 rooms and their availability', done => {
+      db.listRoomsAndAvailability((error, rooms) => {
+        if(error) return done(error)
+        expect(rooms.rows).to.have.lengthOf(18)
+        expect(rooms.rows[4].Available).to.be.false
+        done()
+      })
+    })
+  })
 })
