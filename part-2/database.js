@@ -58,12 +58,12 @@ function listRoomsAndAvailability(callback){
       number AS "Room #",
     	capacity AS "Capacity",
     	CASE
-    		WHEN (CURRENT_DATE BETWEEN check_in AND check_out) THEN false
-    		ELSE true
-    	  END AS "Available"
+        WHEN (CURRENT_DATE BETWEEN check_in AND check_out) THEN false
+        ELSE true
+        END AS "Available"
     FROM rooms
     JOIN bookings b ON
-    	b.room_id = rooms.id
+      b.room_id = rooms.id
     ORDER BY
     	number
   `, callback)

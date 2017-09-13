@@ -8,11 +8,22 @@ describe('database queries', () => {
     it('should return an array of objects of guests', done => {
       db.listGuests((error, guests) => {
         if(error) return done(error)
-        expect(guests.rows.length).to.eql(20)
+        expect(guests.rows).to.have.lengthOf(20)
         expect(guests.rows[0]).to.have.all.keys('ID', 'Guest Name', 'Email')
         done()
       })
     })
   })
 
+  describe('listAllUpcomingBookings', () => {
+    it('should return all future bookings', done => {
+      db.listAllUpcomingBookings((error, bookings) => {
+        if(error) return done(error)
+        expect(bookings.rows[0]['Room #']).to.equal('3F')
+        expect(bookings.rows).to.have.lengthOf(35)
+        expect(bookings.rows[0]).to.have.all.keys('Room #', 'Guest Name', 'Check-In', 'Check Out')
+        done()
+      })
+    })
+  })
 })
