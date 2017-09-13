@@ -16,6 +16,7 @@ switch (command) {
       }
     })
     break;
+
   case 'bookings':
     if(option){
       db.listUpcomingBookingsByRoom(option, function(error, bookings){
@@ -33,6 +34,17 @@ switch (command) {
         console.log(error)
       else{
         print(bookings.rows)
+        client.end()
+      }
+    })
+    break;
+
+  case 'rooms':
+    db.listRoomsAndAvailability(function(error, rooms){
+      if(error)
+        console.log(error)
+      else{
+        print(rooms.rows)
         client.end()
       }
     })
