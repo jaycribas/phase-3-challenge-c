@@ -24,7 +24,7 @@ function listAllUpcomingBookings(callback){
   `, callback)
 }
 
-function listAllUpcomingBookingsByRoom(roomNumber, callback){
+function listUpcomingBookingsByRoom(roomNumber, callback){
   return client.query(`
     SELECT
       number AS "Room #",
@@ -48,5 +48,5 @@ function listAllUpcomingBookingsByRoom(roomNumber, callback){
 module.exports = {
   listGuests,
   listAllUpcomingBookings,
-  listAllUpcomingBookingsByRoom
+  listUpcomingBookingsByRoom
 }
