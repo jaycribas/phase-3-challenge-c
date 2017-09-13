@@ -87,9 +87,34 @@ function listRoomsAndAvailability(callback){
   `, callback)
 }
 
+function listAvailableRooms(callback){
+  return client.query(`
+    SELECT
+      number AS "Room #",
+      capacity AS "Capacity",
+      true AS "Available"
+    FROM
+      rooms
+    EXCEPT
+        SELECT
+          number AS "Room #",
+          capacity AS "Capacity",
+          true AS "Available"
+        FROM
+          rooms
+        JOIN bookings b ON
+          b.room_id = rooms.id
+        WHERE
+          (CURRENT_DATE BETWEEN check_in AND check_out)
+    ORDER BY
+      "Room #"
+  `, callback)
+}
+
 module.exports = {
   listGuests,
   listAllUpcomingBookings,
   listUpcomingBookingsByRoom,
-  listRoomsAndAvailability
+  listRoomsAndAvailability,
+  listAvailableRooms
 }

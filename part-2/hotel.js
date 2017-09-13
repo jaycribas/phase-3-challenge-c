@@ -2,7 +2,7 @@ const print = require('node-print').pt
 const client = require('./db/client')
 
 const command = process.argv[2]
-const option = process.argv[3]
+const filterOption = process.argv[3]
 const db = require('./database')
 
 switch (command) {
@@ -18,8 +18,8 @@ switch (command) {
     break;
 
   case 'bookings':
-    if(option){
-      db.listUpcomingBookingsByRoom(option, function(error, bookings){
+    if(filterOption){
+      db.listUpcomingBookingsByRoom(filterOption, function(error, bookings){
         if(error)
           console.log(error)
         else{
@@ -40,6 +40,17 @@ switch (command) {
     break;
 
   case 'rooms':
+    if(filterOption){
+      db.listAvailableRooms(function(error, rooms){
+        if(error)
+          console.log(error)
+        else{
+          print(rooms.rows)
+          client.end()
+        }
+      })
+      break;
+    }
     db.listRoomsAndAvailability(function(error, rooms){
       if(error)
         console.log(error)
