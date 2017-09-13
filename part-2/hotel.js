@@ -16,9 +16,9 @@ switch (command) {
       }
     })
     break;
-  case 'rooms':
+  case 'bookings':
     if(option){
-      db.listAllUpcomingBookingsByRoom(option, function(error, bookings){
+      db.listUpcomingBookingsByRoom(option, function(error, bookings){
         if(error)
           console.log(error)
         else{
