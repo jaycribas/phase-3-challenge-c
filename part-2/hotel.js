@@ -3,7 +3,7 @@ const client = require('./db/client')
 
 const command = process.argv[2]
 const filterOption = process.argv[3]
-const db = require('./database')
+const db = require('./db/database')
 
 switch (command) {
   case 'guests':

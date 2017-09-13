@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 const client = require('../db/client')
-const db = require('../database')
+const db = require('../db/database')
 
 describe('database queries', () => {
 
