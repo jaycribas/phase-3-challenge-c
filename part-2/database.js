@@ -54,13 +54,13 @@ function listUpcomingBookingsByRoom(roomNumber, callback){
 
 function listRoomsAndAvailability(callback){
   return client.query(`
-    SELECT
-    	DISTINCT number AS "Room #",
+    SELECT DISTINCT
+      number AS "Room #",
     	capacity AS "Capacity",
     	CASE
     		WHEN (CURRENT_DATE BETWEEN check_in AND check_out) THEN false
     		ELSE true
-    	END AS "Available"
+    	  END AS "Available"
     FROM rooms
     JOIN bookings b ON
     	b.room_id = rooms.id
