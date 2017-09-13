@@ -19,8 +19,10 @@ function listAllUpcomingBookings(callback){
       check_out AS "Check Out"
     FROM
       bookings
-    JOIN rooms r ON r.id = room_id
-    JOIN guests g ON g.id = guest_id
+    JOIN rooms r ON
+      r.id = room_id
+    JOIN guests g ON
+      g.id = guest_id
     WHERE
       check_in > CURRENT_DATE
     ORDER BY
@@ -37,8 +39,10 @@ function listUpcomingBookingsByRoom(roomNumber, callback){
       check_out AS "Check Out"
     FROM
       bookings
-    JOIN rooms r ON r.id = room_id
-    JOIN guests g ON g.id = guest_id
+    JOIN rooms r ON
+      r.id = room_id
+    JOIN guests g ON
+      g.id = guest_id
     WHERE
       check_in > CURRENT_DATE
     AND
@@ -48,9 +52,26 @@ function listUpcomingBookingsByRoom(roomNumber, callback){
   `, callback)
 }
 
+function listRoomsAndAvailability(callback){
+  return client.query(`
+    SELECT
+    	DISTINCT number AS "Room #",
+    	capacity AS "Capacity",
+    	CASE
+    		WHEN (CURRENT_DATE BETWEEN check_in AND check_out) THEN false
+    		ELSE true
+    	END AS "Available"
+    FROM rooms
+    JOIN bookings b ON
+    	b.room_id = rooms.id
+    ORDER BY
+    	number
+  `, callback)
+}
 
 module.exports = {
   listGuests,
   listAllUpcomingBookings,
-  listUpcomingBookingsByRoom
+  listUpcomingBookingsByRoom,
+  listRoomsAndAvailability
 }
