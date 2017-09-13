@@ -15,8 +15,8 @@ function listAllUpcomingBookings(callback){
     SELECT
       number AS "Room #",
       name AS "Guest Name",
-      check_in AS "Check-In",
-      check_out AS "Check Out"
+      TO_CHAR (check_in, 'YYYY-MM-DD') AS "Check-In",
+      TO_CHAR (check_out, 'YYYY-MM-DD') AS "Check Out"
     FROM
       bookings
     JOIN rooms r ON
@@ -35,8 +35,8 @@ function listUpcomingBookingsByRoom(roomNumber, callback){
     SELECT
       number AS "Room #",
       name AS "Guest Name",
-      check_in AS "Check-In",
-      check_out AS "Check Out"
+      TO_CHAR (check_in, 'YYYY-MM-DD') AS "Check-In",
+      TO_CHAR (check_out, 'YYYY-MM-DD') AS "Check Out"
     FROM
       bookings
     JOIN rooms r ON
